@@ -23,8 +23,21 @@ the function and run automatically when you commit through a GitHub action.
 
 ## Runtime Analysis
 
-What is the worst-case big $\Theta$ complexity of your implementation? Add your
-answer, including your reasoning, to this markdown file.
+What is the worst-case big $\Theta$ complexity of your implementation? Add your answer, including your reasoning, to this markdown file.
+
+### Answer
+
+#### TL;DR
+
+`depthFirstSearch(...)` $\in \mathrm{\Theta}(\lvert V \rvert + \lvert E \rvert)$
+
+#### Reasoning
+
+Since we're searching through graphs, the time complexity is largely influenced by the data structure being used to compose the graphs. In this case, the algorithm is designed to work with graphs comprised of adjacency *lists*.
+
+The worst-case for Depth-First Search is when the shortest-path spans all of the nodes in the graph. When using adjacency lists, the algorithm will have to visit every *node* (each list in the graph) as well as every *edge* (each element in each list) inside of each node. It is important to note that the algorithm considers each node, and inherently each edge, sequentially.
+
+Keeping all of that in mind, we can label the arbitrary number of *vertices* in the input graph as $\lvert V \rvert$ and the arbitrary number of *edges* in the input graph as $\lvert E \rvert$. Since the worst case will always consider every node and every edge, the worst-case time complexity of Depth-First Search using adjacency lists is an element of $\mathrm{\Theta}(\lvert V \rvert + \lvert E \rvert)$.
 
 ## Bonus
 
